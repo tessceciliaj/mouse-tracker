@@ -9,14 +9,14 @@ This application is a small SPA that dispalys different UI elemnts depending on 
 ## Acceptance criterias
 
 - Header
-- Main 
+- Main
   - Display html element on click
-  - Display html element on double click 
+  - Display html element on double click
 - Footer
 
 ### Testing requirements
 
-- Unit tests - minimum 20 
+- Unit tests - minimum 20
   - getByRole
   - getAll
   - queryBy
