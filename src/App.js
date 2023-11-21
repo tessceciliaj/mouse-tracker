@@ -1,11 +1,15 @@
 import Footer from './components/Footer'
+import { useState } from 'react'
+import Header from '../src/components/Header'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
     <div className='flex min-h-full flex-col bg-neutral-700 px-4 text-neutral-50 md:px-8'>
-      <header>head</header>
+      <Header title='Mouse Tracker' initialCount={count} />
       <main className='flex h-full grow items-center justify-center md:flex-row md:justify-around'>
-        <h1 className='text-accentPurple'>Test Creation</h1>
+        <h1>content</h1>
       </main>
       <Footer />
     </div>
