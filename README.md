@@ -10,9 +10,9 @@ This application is a small SPA that dispalys different UI elemnts depending on 
 
 - Header
 - Main 
-  - Display mouse position 
+  - Display html element on click
+  - Display html element on double click 
 - Footer
-- Star pop-up on space-bar enter
 
 ### Testing requirements
 
