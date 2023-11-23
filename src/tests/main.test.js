@@ -6,7 +6,5 @@ test('renders content in main', () => {
 
   const content = screen.queryByRole('main')
 
-  // render components inside main and check if they render
-
   expect(content).toBeInTheDocument()
 })

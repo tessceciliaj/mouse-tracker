@@ -18,7 +18,7 @@ This application is a small SPA that dispalys different UI elemnts depending on 
 
 - Unit tests - minimum 20
   - getByRole DONE
-  - getAll
+  - getAll DONE
   - queryBy DONE
   - 2 events - mouse and ???
 - Integration tests - minimum 3
