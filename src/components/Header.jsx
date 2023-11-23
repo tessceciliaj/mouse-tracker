@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-
-const Header = ({ title, initialCount }) => {
-  const [count, setCount] = useState(initialCount || 0);
-
+const Header = ({ title, initialCount: count = 0 }) => {
   return (
-    <div className="flex flex-col items-center">
-      <p className="absolute  top-4 left-4 text-accentPurple" data-testid="count">
+    <header className='flex flex-col items-center'>
+      <p
+        className='absolute  left-4 top-4 text-accentPurple'
+        data-testid='count'
+      >
         {count}
       </p>
-      <h1 className="text-xl py-4">{title}</h1>
-      <h3>Welcome to your own clickathon!</h3>
-    </div>
-  );
-};
+      <h1 className='py-4 text-xl'>{title}</h1>
+      <h2>Welcome to your own clickathon!</h2>
+    </header>
+  )
+}
 
-export default Header;
+export default Header

@@ -6,10 +6,10 @@ describe('result for oneClick renders as expected', () => {
   test('result renders in card element', () => {
     render(<Card />)
 
-    const ClickyButtonEl = screen.getByTestId('clickybutton')
+    const clickyButtonEl = screen.getByTestId('clickybutton')
     const resultEl = screen.queryByTestId('resultbox')
 
-    expect(resultEl).toContainElement(ClickyButtonEl)
+    expect(resultEl).toContainElement(clickyButtonEl)
   })
 
   test('oneClick button renders', () => {
@@ -18,6 +18,14 @@ describe('result for oneClick renders as expected', () => {
     const button = screen.getByRole('button', { name: 'clicky button' })
 
     expect(button).toBeInTheDocument()
+  })
+
+  test('button is not disabled on initialization', () => {
+    render(<ClickyButton />)
+
+    const button = screen.getByRole('button', { name: 'clicky button' })
+
+    expect(button).not.toBeDisabled()
   })
 
   test('result has defualt value on initialization', () => {
@@ -37,5 +45,15 @@ describe('result for oneClick renders as expected', () => {
     fireEvent.click(button)
 
     expect(initialValue).not.toHaveTextContent('click to find out what happens')
+  })
+
+  test('button is disabled after click', () => {
+    render(<ClickyButton />)
+
+    const button = screen.getByRole('button', { name: 'clicky button' })
+
+    fireEvent.click(button)
+
+    expect(button).toBeDisabled()
   })
 })

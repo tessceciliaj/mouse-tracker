@@ -17,15 +17,15 @@ describe('card has its expected elements', () => {
 
     const title = screen.getByRole('heading', { level: 3 })
 
-    expect(title).toHaveLength(1)
+    expect(title).toBeInTheDocument()
   })
 
   test('card has information text', () => {
     render(<Card />)
 
-    const infoEl = screen.getAllByTestId('infotext')
+    const infoEl = screen.getByTestId('infotext')
 
-    expect(infoEl).toHaveLength(1)
+    expect(infoEl).toHaveTextContent(/[a-z]/i)
   })
 
   test('card display result', () => {

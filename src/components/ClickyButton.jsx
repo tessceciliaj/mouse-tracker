@@ -11,6 +11,7 @@ const ClickyButton = () => {
       <button
         onClick={() => setClicked(true)}
         className='bg-fuchsia-50 px-6 py-2 font-medium capitalize'
+        disabled={clicked}
       >
         clicky button
       </button>
