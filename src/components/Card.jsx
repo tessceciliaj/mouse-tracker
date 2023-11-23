@@ -10,7 +10,7 @@ const Card = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
-      <div data-testid='resultbox' className='flex flex-col gap-x-2 justify-center items-center'>
+      <div data-testid='resultbox' className='flex flex-col gap-x-2 justify-center items-center pt-2'>
         <OneClickResult />
       </div>
     </section>

@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import Card from '../components/Card'
 import OneClickResult from '../components/OneClickResult'
-import App from '../App'
 
 describe('result for oneClick renders as expected', () => {
   test('result renders in card element', () => {
@@ -13,11 +12,10 @@ describe('result for oneClick renders as expected', () => {
     expect(resultEl).toContainElement(oneClickResultEl)
   })
 
-  test('oneClick button renders', ()=> {
+  test('oneClick button renders', () => {
     render(<OneClickResult />)
 
-    const button = screen.getByRole('button', {name: 'one click'})
-    
+    const button = screen.getByRole('button', { name: 'clicky button' })
 
     expect(button).toBeInTheDocument()
   })
@@ -25,22 +23,20 @@ describe('result for oneClick renders as expected', () => {
   test('result has defualt value on initialization', () => {
     render(<OneClickResult />)
 
-    const initialValue = screen.getByText(/click once to find out what happens/i)
+    const initialValue = screen.getByText(/click to find out what happens/i)
 
     expect(initialValue).toBeInTheDocument()
   })
 
-  // test('result updates after single click event', () => {
-  //   render(<App />)
+  test('result updates after button click', () => {
+    render(<OneClickResult />)
 
-  //   const elements = screen.getAllByRole('generic')
-  //   const randomEl = elements[Math.floor(Math.random() * elements.length)]
+    const button = screen.getByRole('button', { name: 'clicky button' })
+    const initialValue = screen.getByText(/click to find out what happens/i)
 
-  //   fireEvent.click(randomEl)
+    fireEvent.click(button)
 
-  //   const initialValue = screen.getByText(/click once on the screen/i)
-  //   const clickValue = !initialValue
+    expect(initialValue).not.toHaveTextContent('click to find out what happens')
+  })
 
-  //   expect(clickValue).toBeInTheDocument()
-  // })
 })
