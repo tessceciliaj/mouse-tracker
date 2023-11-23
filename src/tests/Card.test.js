@@ -15,7 +15,7 @@ describe('card has its expected elements', () => {
   test('card has title', () => {
     render(<Card />)
 
-    const title = screen.getAllByText(/title/i)
+    const title = screen.getByRole('heading', { level: 3 })
 
     expect(title).toHaveLength(1)
   })

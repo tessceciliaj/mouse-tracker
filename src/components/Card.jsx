@@ -1,4 +1,4 @@
-import OneClickResult from './OneClickResult'
+import ClickyButton from './ClickyButton'
 import littleStar from '../assets/icons8-hand-drawn-star-24.png'
 import { show_image } from '../utils/coor';
 
@@ -17,7 +17,7 @@ const Card = () => {
         </p>
       </div>
       <div data-testid='resultbox' className='flex flex-col gap-x-2 justify-center items-center pt-2'>
-        <OneClickResult />
+        <ClickyButton />
           <button id="foo" onClick={handleShowImage}>
           Get a Star
         </button>

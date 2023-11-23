@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-const OneClickResult = () => {
+const ClickyButton = () => {
   const [clicked, setClicked] = useState(false)
 
   return (
-    <div data-testid='oneclickresult' className='flex flex-col gap-y-2'>
+    <div data-testid='clickybutton' className='flex flex-col gap-y-2'>
       <p className='mt-2 text-center text-sm'>
         {!clicked ? 'Click to find out what happens' : 'You get a STAR!'}
       </p>
@@ -18,4 +18,4 @@ const OneClickResult = () => {
   )
 }
 
-export default OneClickResult
+export default ClickyButton
