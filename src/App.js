@@ -1,6 +1,7 @@
 import Footer from './components/Footer'
 import { useState } from 'react'
 import Header from '../src/components/Header'
+import Card from './components/Card'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,7 +10,7 @@ function App() {
     <div className='flex min-h-full flex-col bg-neutral-700 px-4 text-neutral-50 md:px-8'>
       <Header title='Mouse Tracker' initialCount={count} />
       <main className='flex h-full grow items-center justify-center md:flex-row md:justify-around'>
-        <h1>content</h1>
+        <Card />
       </main>
       <Footer />
     </div>

@@ -21,3 +21,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer utilities {
+  .box-shadow {
+    box-shadow: 6px 6px 0px 0px rgb(184 155 223 / 0.4);
+    -webkit-box-shadow: 6px 6px 0px 0px rgb(184 155 223 / 0.4);
+    -moz-box-shadow: 6px 6px 0px 0px rgb(184 155 223 / 0.4);
+  }
+}
