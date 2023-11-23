@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Coordinates from "./Coordinates";
 
 const Header = ({ title, initialCount }) => {
   const [count, setCount] = useState(initialCount || 0);
@@ -11,7 +10,6 @@ const Header = ({ title, initialCount }) => {
       </p>
       <h1 className="text-xl py-4">{title}</h1>
       <h3>Welcome to your own clickathon!</h3>
-      <Coordinates />
     </div>
   );
 };
