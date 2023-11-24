@@ -3,13 +3,12 @@ import Header from '../components/Header'
 import App from '../App'
 
 describe('All header elements are rendered properly', () => {
-  test('Header is rendered in app', () => {
-    render(<App />)
+  test('Header is rendered', () => {
+    render(<App />);
 
-    const header = screen.getByRole('banner')
-    const app = screen.getByTestId('app')
+    const header = screen.getByText('Mouse Tracker');
 
-    expect(app).toContainElement(header)
+    expect(header).toBeInTheDocument();
   })
 
   test('Count is rendered.', () => {
@@ -20,7 +19,7 @@ describe('All header elements are rendered properly', () => {
     expect(countValue).toHaveTextContent('0')
   })
 
-  test('Page title are rendered.', () => {
+  test('Page title is rendered', () => {
     render(<Header />)
 
     const pageTitle = screen.getByRole('heading', { level: 1 })
@@ -28,7 +27,7 @@ describe('All header elements are rendered properly', () => {
     expect(pageTitle).toBeInTheDocument()
   })
 
-  test('Subtitle are rendered.', () => {
+  test('Subtitle is rendered', () => {
     render(<Header title='Let the clickathon begin!' />)
 
     const subTitle = screen.getByRole('heading', { level: 2 })

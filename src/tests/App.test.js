@@ -1,9 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import App from '../App'
 
 describe('Render App correctly', () => {
-
-   // integration test
+  // integration test
   test('Coordinates are displayed correctly on mouse movement', () => {
     render(<App />)
 
@@ -23,34 +22,51 @@ describe('Render App correctly', () => {
     expect(coordinateDiv).toHaveTextContent('Coordinates: 100, 200')
   })
 
-  test('Header renders with correct title', () => {
-    render(<App />);
+  test('Header renders in application', () => {
+    render(<App />)
 
-    const headerTitle = screen.getByText('Mouse Tracker');
-    expect(headerTitle).toBeInTheDocument();
+    const header = screen.getByRole('banner')
+    const app = screen.getByTestId('app')
 
-  });
+    expect(app).toContainElement(header)
+  })
 
   test('Application renders two buttons', () => {
     render(<App />)
 
-    const buttons = screen.getAllByRole('button') 
+    const buttons = screen.getAllByRole('button')
 
     expect(buttons).toHaveLength(2)
   })
 
+  test('Footer renders correctly in application', () => {
+    render(<App />)
 
-  test('Footer renders correctly', () => {
-    render(<App />);
+    const footer = screen.getByTestId('footer')
+    const app = screen.getByTestId('app')
+
+    expect(app).toContainElement(footer)
+  })
+
+  test('Card component renders in main', () => {
+    render(<App />)
+
+    const cardEl = screen.getByTestId('card')
+    const content = screen.queryByRole('main')
+
+    expect(content).toContainElement(cardEl)
+  })
+
+  //integration test
+  test('image is displayed when "Get a Star" button is clicked', () => {
+    render(<App />)
+
+    const button = screen.getByRole('button', {name: "Get a Star"})
     
-    const footerElement = screen.getByTestId('footer');
-    expect(footerElement).toBeInTheDocument();
-  });
+    fireEvent.click(button)
 
-  test('Card component renders and interacts correctly', () => {
-    render(<App />);
+    const image = screen.getByAltText('Star')
 
-    const cardElement = screen.getByTestId('card');
-    expect(cardElement).toBeInTheDocument();
-  });
+    expect(image).toBeInTheDocument()
+  })
 })

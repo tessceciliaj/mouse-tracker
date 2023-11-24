@@ -2,7 +2,7 @@ import Footer from './components/Footer'
 import { useState } from 'react'
 import Header from '../src/components/Header'
 import Card from './components/Card'
-import { trackCoordinates } from './utils/coor'
+import { trackCoordinates } from './utils/utils'
 
 function App() {
   const [count, setCount] = useState(0)

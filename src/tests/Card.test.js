@@ -4,21 +4,20 @@ import ClickyButton from '../components/ClickyButton'
 import App from '../App'
 
 describe('card has its expected elements', () => {
-  test('card renders in main', () => {
+  test('card renders', () => {
     render(<App />)
 
-    const cardEl = screen.getByTestId('card')
-    const content = screen.queryByRole('main')
+    const cardElement = screen.getByTestId('card')
 
-    expect(content).toContainElement(cardEl)
+    expect(cardElement).toBeInTheDocument()
   })
 
   test('card has title', () => {
     render(<Card />)
 
-    const title = screen.getByRole('heading', { level: 3 })
+    const title = screen.getAllByRole('heading', { level: 3 })
 
-    expect(title).toBeInTheDocument()
+    expect(title).toHaveLength(1)
   })
 
   test('card has information text', () => {
@@ -29,7 +28,7 @@ describe('card has its expected elements', () => {
     expect(infoEl).toHaveTextContent(/[a-z]/i)
   })
 
-  test('card display result', () => {
+  test('card displays result', () => {
     render(<Card />)
 
     const resultEl = screen.queryByTestId('resultbox')
@@ -37,37 +36,34 @@ describe('card has its expected elements', () => {
     expect(resultEl).toBeInTheDocument()
   })
 
-  test('handleShowImage is called when the button is clicked', () => {
-    const setCountMock = jest.fn();
-    render(<Card setCount={setCountMock} />);
-  
-    const button = screen.getByText('Get a Star');
-    fireEvent.click(button);
-  
-    expect(setCountMock).toHaveBeenCalled();
-  });
+  test('handleShowImage is called when "Get a Star" button is clicked', () => {
+    const setCountMock = jest.fn()
+    render(<Card setCount={setCountMock} />)
+
+    const button = screen.getByText('Get a Star')
+    fireEvent.click(button)
+
+    expect(setCountMock).toHaveBeenCalled()
+  })
 
   test('Get a Star button is rendered correctly.', () => {
     render(<Card />)
 
-    const starButton = screen.getByRole('button', {name: 'Get a Star'})
+    const starButton = screen.getByRole('button', { name: 'Get a Star' })
 
     expect(starButton).toBeInTheDocument()
   })
 
-  // integration test
   test('ClickyButton is rendered within Card', () => {
     render(
       <Card>
         <ClickyButton />
       </Card>
-    );
+    )
 
-    const oneClickResultElement = screen.getByTestId('clickybutton');
-    const cardElement = screen.getByTestId('card');
+    const oneClickResultElement = screen.getByTestId('clickybutton')
+    const cardElement = screen.getByTestId('card')
 
-    expect(cardElement).toContainElement(oneClickResultElement);
-  });
-
-  
+    expect(cardElement).toContainElement(oneClickResultElement)
+  })
 })

@@ -1,9 +1,8 @@
 import ClickyButton from './ClickyButton'
 import littleStar from '../assets/icons8-hand-drawn-star-24.png'
-import { show_image } from '../utils/coor'
+import { show_image } from '../utils/utils'
 
 const Card = ({ setCount }) => {
-  
   const handleShowImage = () => {
     show_image(littleStar, 25, 25, 'Star')
     setCount((prev) => prev + 1)
