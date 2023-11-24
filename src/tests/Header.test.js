@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import App from '../App'
 
 describe('All header elements are rendered properly', () => {
-  test('header is rendered in app', () => {
+  test('Header is rendered in app', () => {
     render(<App />)
 
     const header = screen.getByRole('banner')

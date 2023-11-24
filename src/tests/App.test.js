@@ -31,6 +31,14 @@ describe('Render App correctly', () => {
 
   });
 
+  test('Application renders two buttons', () => {
+    render(<App />)
+
+    const buttons = screen.getAllByRole('button') 
+
+    expect(buttons).toHaveLength(2)
+  })
+
 
   test('Footer renders correctly', () => {
     render(<App />);

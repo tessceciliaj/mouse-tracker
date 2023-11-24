@@ -47,6 +47,14 @@ describe('card has its expected elements', () => {
     expect(setCountMock).toHaveBeenCalled();
   });
 
+  test('Get a Star button is rendered correctly.', () => {
+    render(<Card />)
+
+    const starButton = screen.getByRole('button', {name: 'Get a Star'})
+
+    expect(starButton).toBeInTheDocument()
+  })
+
   // integration test
   test('ClickyButton is rendered within Card', () => {
     render(

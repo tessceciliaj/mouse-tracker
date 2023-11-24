@@ -19,24 +19,16 @@ This application is a small SPA that dispalys different UI elemnts depending on 
   - Render main element.
 - Card
   - Title
-  - 
+  - Information Text
+  - Result Box
+  - Get A Star button
+  - Clicky Button
 - ClickyButton
   - fireevent
 - Footer
-
-### Testing requirements
-
-- Unit tests - minimum 20
-  - getByRole DONE
-  - getAll DONE
-  - queryBy DONE
-  - 2 events - mouse and ???
-- Integration tests - minimum 3
-  - some aspect of state changing (aka updating UI)
+  - Footer text
 
 ### Project Overview
-
-This project consists of a web application developed using React, accompanied by a suite of tests written with the `@testing-library/react` library.
 
 ### Components
 
