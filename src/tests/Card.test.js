@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import Card from '../components/Card'
-import OneClickResult from '../components/OneClickResult'
+import ClickyButton from '../components/ClickyButton'
 import App from '../App'
 
 describe('card has its expected elements', () => {
@@ -37,38 +37,25 @@ describe('card has its expected elements', () => {
     expect(resultEl).toBeInTheDocument()
   })
 
-  test('clicking the "Get a Star" button displays an image', () => {
-    render(<Card />);
+  test('handleShowImage is called when the button is clicked', () => {
+    const setCountMock = jest.fn();
+    render(<Card setCount={setCountMock} />);
   
-    const button = screen.getByRole('button', { name: /get a star/i });
+    const button = screen.getByText('Get a Star');
     fireEvent.click(button);
   
-    const image = screen.getByAltText('Star');
-  
-    expect(image).toBeInTheDocument();
+    expect(setCountMock).toHaveBeenCalled();
   });
 
-
-  test('clicking the button triggers the handleShowImage function', () => {
-    const handleShowImageMock = jest.fn();
-  
-    render(<Card />);
-  
-    const button = screen.getByRole('button', { name: /get a star/i });
-    button.onclick = handleShowImageMock;
-    fireEvent.click(button);
-  
-    expect(handleShowImageMock).toHaveBeenCalled();
-  });
-  
-  test('OneClickResult is rendered within Card', () => {
+  // integration test
+  test('ClickyButton is rendered within Card', () => {
     render(
       <Card>
-        <OneClickResult />
+        <ClickyButton />
       </Card>
     );
 
-    const oneClickResultElement = screen.getByTestId('oneclickresult');
+    const oneClickResultElement = screen.getByTestId('clickybutton');
     const cardElement = screen.getByTestId('card');
 
     expect(cardElement).toContainElement(oneClickResultElement);

@@ -13,7 +13,7 @@ describe('All header elements are rendered properly', () => {
   })
 
   test('Count is rendered.', () => {
-    render(<Header title='Let the clickathon begin!' initialCount={0} />)
+    render(<Header initialCount={0} />)
 
     const countValue = screen.getByTestId('count')
 
@@ -21,7 +21,7 @@ describe('All header elements are rendered properly', () => {
   })
 
   test('Page title are rendered.', () => {
-    render(<Header title='Let the clickathon begin!' initialCount={0} />)
+    render(<Header />)
 
     const pageTitle = screen.getByRole('heading', { level: 1 })
 
@@ -29,7 +29,7 @@ describe('All header elements are rendered properly', () => {
   })
 
   test('Subtitle are rendered.', () => {
-    render(<Header title='Let the clickathon begin!' initialCount={0} />)
+    render(<Header title='Let the clickathon begin!' />)
 
     const subTitle = screen.getByRole('heading', { level: 2 })
 
